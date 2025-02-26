@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清江 Tsing Kong - Internet Micronation Project</title>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #004466 0%, #006699 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background-image: url('/api/placeholder/1920/1080'); */
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            color: #004466;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #004466;
+            padding-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .feature-box h3 {
+            color: #004466;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .card-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card-link {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-link-header {
+            background-color: #004466;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .card-link-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card-link-desc {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #004466;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #006699;
+        }
+        
+        .cta-section {
+            background-color: #004466;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-container h2 {
+            color: white;
+            border-bottom: none;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: #004466;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn-white:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .flags {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .flag {
+            width: 40px;
+            height: 30px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+        }
+        
+        footer {
+            background-color: #004466;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .logo-placeholder {
+            width: 150px;
+            height: 100px;
+            background-color: rgba(255,255,255,0.1);
+            border: 2px dashed #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .home-btn {
+            background-color: #006699;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>清江 TSING KONG</h1>
+            <div class="subtitle">網絡微國家計劃 Internet Micronation Project</div>
+            <!-- <div class="flags">
+                <div class="flag"></div>
+                <div class="flag"></div>
+                <div class="flag"></div>
+            </div> -->
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <h2>關於清江</h2>
+            <p>清江（TSING KONG）是一個創新的網絡微型國家項目，設定為星空合眾國高川直轄市南部的特別管治區域(SAR)，由對岸研究院微國家事務及網絡空間治理總署（MACAO）管治的殖民地。本項目旨在探索虛擬空間治理、網絡社群建設和數位身份認同等現代議題。</p>
+            
+            <p>清江的設計靈感來源於1970-1980年代的英屬香港，融合了東西方文化元素，並在虛擬世界中重新詮釋了殖民地治理、法律體系和社會結構。這是一個開放的創意項目，歡迎對網絡文化、社會治理和虛擬身份感興趣的朋友參與其中。</p>
+        </section>
+        
+        <section id="features">
+            <h2>特色要素</h2>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h3>獨特憲制架構</h3>
+                    <p>清江擁有層次分明的憲制性文件體系，包括對岸研究院頒行和MACAO頒行的各類法律文件，形成了一套完整的虛擬治理框架。</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h3>三方政治角力</h3>
+                    <p>MACAO（殖民統治者）、雲屏（星空合眾國政府）和清江本土派三方之間的複雜互動，形成了豐富的政治動態。</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h3>多元文化融合</h3>
+                    <p>清江擁有三種官方語言（白話、國語和英語），體現了東西方文化的交融，為探討文化認同提供了獨特視角。</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h3>完整法律體系</h3>
+                    <p>基於普通法傳統的司法體系，包括終審法院、高等法院、地區法院和裁判法院，為網絡空間治理提供了參考模型。</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h3>自由市場經濟</h3>
+                    <p>低稅率、簡單稅制、最小政府干預的經濟體制，展現了虛擬世界中的經濟運作可能性。</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h3>國際關係網絡</h3>
+                    <p>清江雖為殖民地，但在經貿和文化方面享有自主權，能夠發行自己的貨幣和護照，參與國際經濟組織。</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="explore">
+            <h2>探索清江</h2>
+            <p>通過以下資源，您可以深入了解清江的各個方面：</p>
+            
+            <div class="card-links">
+                <a href="intro.html" class="card-link">
+                    <div class="card-link-header">清江設定文件</div>
+                    <div class="card-link-body">
+                        <div class="card-link-desc">全面了解清江的歷史背景、政治體制、經濟體系和社會結構等詳細資料。</div>
+                        <div class="btn">查看文件</div>
+                    </div>
+                </a>
+                
+                <a href="tsing-kong-knowledge-cards.html" class="card-link">
+                    <div class="card-link-header">清江知識卡</div>
+                    <div class="card-link-body">
+                        <div class="card-link-desc">通過簡潔精煉的知識卡，快速掌握清江的核心概念和特色要素。</div>
+                        <div class="btn">瀏覽知識卡</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>加入清江計劃</h2>
+            <p>無論您是對網絡治理、虛擬國家建設還是數字身份認同感興趣，清江項目都歡迎您的參與和貢獻。一起探索虛擬世界的無限可能！</p>
+            <a href="#" class="btn btn-white">了解如何參與</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="logo-container">
+            <img src="/images/dnit.svg" style="width: 150px; height: 100px; border-radius: 16px;" />
+            <img src="/images/dnit-macao.svg" style="width: 150px; height: 100px; border-radius: 16px;" />
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Deoi Ngon Institute of Technology</p>
+    </footer>
+</body>
+</html>
